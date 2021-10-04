@@ -1,19 +1,25 @@
 <?php
 
-namespace App;
+namespace Router;
 
 class Router {
 
     public $url;
+    public $routes = [];
 
     public function __construct($url)
     {
         $this->url = $url;
     }
 
-    public function show()
+    // public function show()
+    // {
+    //     echo $this->url;
+    // }
+
+    public function get(string $path, string $action)
     {
-        echo $this->url;
+        $this->routes['GET'][] = new Route($path, $action);
     }
 }
 
